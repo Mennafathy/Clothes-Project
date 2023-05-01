@@ -1,0 +1,58 @@
+<nav class="navbar fixed-top navbar-expand-lg bg-white">
+  <div class="container">
+    <a class="navbar-brand  " href="#"><img src="../../../assets/freshcart-logo.svg"  alt="" srcset=""></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="NavData" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li  class="nav-item">
+          <a class="nav-link" href="#" routerLink="home">Home</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" href="#" routerLink="products">Products</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" href="#" routerLink="categories">Categories</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" href="#" routerLink="brands">Brands</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item d-flex align-items-center">
+          <i class="fab mx-2 fa-instagram"></i>
+          <i class="fab mx-2 fa-facebook"></i>
+          <i class="fab mx-2 fa-tiktok"></i>
+          <i class="fab mx-2 fa-twitter"></i>
+          <i class="fab mx-2 fa-linkedin"></i>
+          <i class="fab mx-2 fa-youtube"></i>
+        </li>
+        <li *ngIf="!NavData" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="!NavData" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/register">Register</a>
+        </li>
+        <li *ngIf="NavData" class="nav-item">
+          <span (click)="LogOut()" class="nav-link cursor-pointer" >LogOut</span>
+        </li>
+        <li *ngIf="NavData" class="nav-item">
+          <a class="nav-link position-relative" href="#" routerLink="cart">
+            <i class="fa-solid fa-cart-shopping text-main fa-2x"></i>
+            <span class="badge bg-main-light text-info position-absolute top-0 end-0">{{cartNumbers}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,28 @@
+<div class="bg-main-light p-4 my-4">
+    <h3 class="text-capitalize">shop cart</h3>
+    <h6 class="text-capitalize text-main ">total cart price : <strong>{{cartDetails?.totalCartPrice}} EGP</strong> </h6>
+    
+    <div class="row border-bottom py-3 align-items-center" *ngFor="let product of cartDetails?.products">
+        <div class="col-md-1">
+            <img [src]="product.product.imageCover" class="w-100" alt="" srcset="">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between">
+          <div>
+            <h5 class="text-capitalize fw-bold">{{product.product.title}}</h5>
+            <h6 class="text-main">Price: {{product.price}}</h6>
+            <button class="btn m-0 p-0" (click)="removeCartItem(product.product)"><i class="fa-regular fa-trash-can text-danger"></i> Remove</button>
+          </div>
+          <div >
+            <button class="btn border-danger text-danger btn-sm" (click)="updateCartQuantity(product.product._id,product.count+1)">-</button>
+            <span class="text-main mx-2">{{product.count}}</span>
+            <button class="btn  border-main text-main btn-sm" (click)="updateCartQuantity(product.product._id,product.count-1)">+</button>
+          </div>
+        </div>
+    </div>
+    <button class="btn bg-main ">
+        <a routerLink="/checkout" class="text-white">
+            Online Payment 
+            <img src="assets/visa-100x34.svg" class="w-25" alt="" srcset="">
+        </a>
+    </button>
+</div>
