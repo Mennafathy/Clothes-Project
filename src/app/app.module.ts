@@ -29,6 +29,7 @@ import { LoadingPageComponent } from './components/loading-page/loading-page.com
 import { ToastrModule } from 'ngx-toastr';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,13 @@ import { HeaderInterceptor } from './interceptors/header.interceptor';
       provide:HTTP_INTERCEPTORS,
       useClass:HeaderInterceptor,
       multi:true
-    }
+    },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:ErrorInterceptor,
+      multi:true
+    },
+
   ],
   bootstrap: [AppComponent]
 })

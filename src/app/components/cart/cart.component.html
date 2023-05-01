@@ -13,9 +13,9 @@
             <button class="btn m-0 p-0" (click)="removeCartItem(product.product)"><i class="fa-regular fa-trash-can text-danger"></i> Remove</button>
           </div>
           <div >
-            <button class="btn border-danger text-danger btn-sm" (click)="updateCartQuantity(product.product._id,product.count+1)">-</button>
+            <button class="btn border-danger text-danger btn-sm" (click)="updateCartQuantity(product.product._id,product.count-1)">-</button>
             <span class="text-main mx-2">{{product.count}}</span>
-            <button class="btn  border-main text-main btn-sm" (click)="updateCartQuantity(product.product._id,product.count-1)">+</button>
+            <button class="btn  border-main text-main btn-sm" (click)="updateCartQuantity(product.product._id,product.count+1)">+</button>
           </div>
         </div>
     </div>
